@@ -19,6 +19,6 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',
-    install_requires=["beautifulsoup4", "django>=2.2", "requests"]
+    install_requires=["beautifulsoup4", "django>=2.2", "requests"],
     include_package_data=True
 )
