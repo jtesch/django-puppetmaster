@@ -74,7 +74,7 @@ def puppet_view(request, route):
 
     return render(
         request,
-        "puppet.html",
+        "puppets/puppet.html",
         {"react_index": {
             "body": soup.body.prettify(),
             "head": soup.head.prettify()
@@ -89,4 +89,4 @@ def index(request):
     :return:
     """
 
-    return render(request, "index.html", {"micro_frontends": Puppet.objects.all()})
+    return render(request, "puppets/index.html", {"micro_frontends": Puppet.objects.all()})
