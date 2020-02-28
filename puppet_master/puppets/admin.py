@@ -1,6 +1,6 @@
 from django.contrib.auth.admin import admin
 
-from suite.models import Puppet
+from puppet_master.puppets.models import Puppet
 
 
 class MicroFrontendAdmin(admin.ModelAdmin):

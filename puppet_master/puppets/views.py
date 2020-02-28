@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from bs4 import BeautifulSoup
 import requests
 
-from suite.models import Puppet
+from puppet_master.puppets.models import Puppet
 
 
 def build_link(url, tag, type):
