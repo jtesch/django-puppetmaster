@@ -16,9 +16,6 @@ class Puppet(models.Model):
     domain_url = models.URLField(
         help_text="The public domain in which the files are hosted."
     )
-    internal_url = models.URLField(
-        help_text="The internal domain"
-    )
     html_file = models.CharField(
         max_length=200,
         help_text="The URL location of the html file of the built SPA app."
