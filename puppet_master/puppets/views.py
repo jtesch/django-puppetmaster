@@ -67,7 +67,7 @@ def puppet_view(request, route):
         raise Http404("Unable to locate route for application.")
 
     mf = get_object_or_404(Puppet, route=current_route)
-    req = requests.get(f"{mf.domain_url}/{mf.html_file}")
+    req = requests.get(f"{mf.html_file}")
     soup = BeautifulSoup(req.text, 'html.parser')
     parse_descendants(mf.domain_url, soup.head.contents)
     parse_descendants(mf.domain_url, soup.body.contents)

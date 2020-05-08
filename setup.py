@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="puppet_master",
-    version="0.0.2",
+    version="0.0.3",
     author="Josh Tesch",
     author_email="jtesch@overnitecbt.com",
     description="Django Puppet Master for routing react apps",
