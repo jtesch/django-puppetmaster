@@ -25,6 +25,9 @@ class Puppet(models.Model):
         help_text="The django route where the app will be served",
         unique=True,
     )
+    requires_login = models.BooleanField(
+        default=False,
+    )
 
     def __str__(self):
         return self.name

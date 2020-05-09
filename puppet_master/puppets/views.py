@@ -1,9 +1,12 @@
+from django.conf import settings
 from django.http import Http404
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from bs4 import BeautifulSoup
 import requests
 
 from puppet_master.puppets.models import Puppet
+
+LOGIN_URL = getattr(settings, "LOGIN_URL", "/admin/login/")
 
 
 def build_link(url, tag, type):
@@ -67,6 +70,10 @@ def puppet_view(request, route):
         raise Http404("Unable to locate route for application.")
 
     mf = get_object_or_404(Puppet, route=current_route)
+
+    if mf.requires_login and not request.user.is_authenticated():
+        return redirect(f"{LOGIN_URL}?next={request.get_full_path()}")
+
     req = requests.get(f"{mf.html_file}")
     soup = BeautifulSoup(req.text, 'html.parser')
     parse_descendants(mf.domain_url, soup.head.contents)
