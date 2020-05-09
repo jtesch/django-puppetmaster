@@ -71,7 +71,7 @@ def puppet_view(request, route):
 
     mf = get_object_or_404(Puppet, route=current_route)
 
-    if mf.requires_login and not request.user.is_authenticated():
+    if mf.requires_login and not request.user.is_authenticated:
         return redirect(f"{LOGIN_URL}?next={request.get_full_path()}")
 
     req = requests.get(f"{mf.html_file}")
